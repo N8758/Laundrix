@@ -1,4 +1,4 @@
-# 🧺 Laundry Management System
+# 🧺 Laundrix
 
 > A full-stack web application for managing laundry businesses — built for laundry owners, their staff, and customers.
 
