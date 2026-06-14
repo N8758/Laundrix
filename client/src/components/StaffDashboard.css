@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Root Tokens ─────────────────────────────────── */
+:root {
+  --bg:             #f4f6fa;
+  --card-bg:        #ffffff;
+  --accent:         #2563eb;
+  --accent-hover:   #1d4ed8;
+  --accent-dim:     rgba(37, 99, 235, 0.10);
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --border:         #e5e7eb;
+  --tab-hover:      #e2e8f2;
+  --green:          #16a34a;
+  --green-hover:    #15803d;
+  --green-dim:      rgba(22, 163, 74, 0.10);
+  --orange:         #ea580c;
+  --shadow-sm:      0 1px 4px rgba(0,0,0,0.05);
+  --shadow-md:      0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:      0 8px 40px rgba(0,0,0,0.10);
+  --radius-sm:      8px;
+  --radius-md:      12px;
+  --radius-lg:      18px;
+}
+
+/* ─── Container ───────────────────────────────────── */
+.staff-dashboard {
+  padding: 40px 36px;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Header Card ─────────────────────────────────── */
+.staff-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #312e81 100%);
+  padding: 30px 32px;
+  border-radius: var(--radius-lg);
+  color: #ffffff;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 32px rgba(30, 58, 138, 0.30);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative circle accents */
+.staff-header::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.staff-header::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: 80px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.staff-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.2px;
+  position: relative;
+  z-index: 1;
+}
+
+.staff-info {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.85;
+  margin: 4px 0;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.1px;
+}
+
+/* ─── Tabs ────────────────────────────────────────── */
+.staff-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 28px;
+  background: var(--card-bg);
+  padding: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  width: fit-content;
+  flex-wrap: wrap;
+}
+
+.staff-tab-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.staff-tab-btn:hover {
+  background: var(--tab-hover);
+  color: var(--text-primary);
+}
+
+.staff-tab-active {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+}
+
+.staff-tab-active:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* ─── Orders Title ────────────────────────────────── */
+.orders-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+/* ─── Empty Orders ────────────────────────────────── */
+.no-orders {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Order Card ──────────────────────────────────── */
+.order-card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  animation: fadeSlideIn 0.28s ease both;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.order-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.order-card p {
+  margin: 8px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.order-card b {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-right: 3px;
+}
+
+.order-card hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+/* ─── Navigate Button ─────────────────────────────── */
+.navigate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 9px 16px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1.5px solid rgba(37, 99, 235, 0.2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.navigate-btn:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+}
+
+.navigate-btn:active {
+  transform: translateY(0);
+}
+
+/* ─── Service Box ─────────────────────────────────── */
+.service-box {
+  background: var(--bg);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  margin-top: 12px;
+  border: 1px solid var(--border);
+}
+
+.service-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ─── Weight Pending ──────────────────────────────── */
+.weight-pending {
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ─── KG Input ────────────────────────────────────── */
+.kg-input {
+  padding: 10px 14px;
+  width: 170px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-top: 10px;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.kg-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.kg-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* ─── Submit Button ───────────────────────────────── */
+.submit-btn {
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1.5px solid rgba(22, 163, 74, 0.22);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+  background: var(--green);
+  color: #ffffff;
+  border-color: var(--green);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.28);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ─── Delivery Ready ──────────────────────────────── */
+.delivery-ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 8px 14px;
+  background: var(--green-dim);
+  color: var(--green);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+/* ─── Animation ───────────────────────────────────── */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .staff-dashboard {
+    padding: 20px 16px;
+  }
+
+  .staff-header {
+    padding: 22px 20px;
+  }
+
+  .staff-title {
+    font-size: 22px;
+  }
+
+  .staff-tabs {
+    width: 100%;
+  }
+
+  .staff-tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  .kg-input {
+    width: 140px;
+  }
+
+  .order-card {
+    padding: 18px 16px;
+  }
+}
+
+
+
+.staff-header::before,
+.staff-header::after {
+  pointer-events: none;
+}

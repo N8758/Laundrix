@@ -1,0 +1,145 @@
+/* OwnerFeedback.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+.feedback-root {
+  font-family: 'DM Sans', sans-serif;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 1.5rem;
+}
+
+.feedback-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #888;
+  margin-bottom: 10px;
+  margin-top: 1.5rem;
+}
+
+.feedback-card {
+  background: #fff;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 12px;
+  border-left: 3px solid #f59e0b;
+}
+
+.feedback-card.approved {
+  border-left-color: #1b6b3a;
+  background: #fafafa;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.customer-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+}
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.service-tag {
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.suggestion-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.feedback-date {
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+.card-divider {
+  border: none;
+  border-top: 0.5px solid #e5e5e5;
+  margin: 10px 0;
+}
+
+.action-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: opacity 0.15s;
+  font-family: inherit;
+}
+
+.btn:hover { opacity: 0.8; }
+
+.btn-approve {
+  background: #1b6b3a;
+  color: #e6f4ec;
+  border-color: #1b6b3a;
+}
+
+.btn-delete {
+  background: transparent;
+  color: #b91c1c;
+  border-color: #f87171;
+}
+
+.status-pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.status-pending  { background: #fef3c7; color: #92400e; }
+.status-approved { background: #d1fae5; color: #065f46; }
+
+.error-msg {
+  color: #b91c1c;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.empty-msg {
+  font-size: 13px;
+  color: #aaa;
+  padding: 1rem 0;
+}

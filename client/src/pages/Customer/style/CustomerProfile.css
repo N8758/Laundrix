@@ -1,0 +1,47 @@
+/* client/src/pages/Customer/style/CustomerProfile.css */
+
+.profile-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.profile-title {
+  margin-bottom: 15px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.profile-info {
+  margin-top: 20px;
+  background: #f5f7ff;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.profile-btn {
+  margin-top: 15px;
+  padding: 10px;
+  background: #3a6ff7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.profile-btn:hover {
+  background: #2f5de0;
+}

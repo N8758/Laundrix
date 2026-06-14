@@ -1,0 +1,296 @@
+/* ============================================================
+   Subscription.css — Professional & Beautiful
+   Matches your JSX classnames exactly
+   Font: Plus Jakarta Sans (modern & premium)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ─── PAGE WRAPPER ─── */
+.subscription-container {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 40px 36px;
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+/* ─── PAGE HEADING ─── */
+.subscription-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.subscription-subtitle {
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+/* ─── ACTIVE SUBSCRIPTION INFO BOX ─── */
+.subscription-info {
+  background: #ffffff;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #2563eb;
+  border-radius: 0px 16px 16px 0px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.subscription-info h5 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.subscription-info p {
+  font-size: 14px;
+  color: #475569;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─── CANCEL AUTOPAY BUTTON ─── */
+.cancel-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fff1f1;
+  color: #dc2626;
+  border: 1.5px solid #fca5a5;
+  padding: 9px 22px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-top: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cancel-btn:hover {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+}
+
+/* ─── SELECTED PLAN CARD ─── */
+.selected-card {
+  background: #ffffff;
+  border: 1px solid #bfdbfe;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.selected-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  margin-right: auto;
+}
+
+/* ─── MANUAL PAY BUTTON ─── */
+.manual-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 11px 26px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.manual-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* ─── AUTOPAY BUTTON ─── */
+.auto-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 11px 26px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auto-btn:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.3);
+}
+
+/* ─── PLAN CARDS GRID ─── */
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Override Bootstrap col if present */
+.col-md-3 {
+  width: 100% !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  flex: none !important;
+}
+
+/* ─── INDIVIDUAL PLAN CARD ─── */
+.plan-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.12);
+  border-color: #93c5fd;
+}
+
+.plan-card:hover::before {
+  opacity: 1;
+}
+
+/* Plan name */
+.plan-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+/* Price — targets the h1 in your JSX */
+.plan-card h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #2563eb;
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+/* In case you use .plan-price class */
+.plan-price {
+  font-size: 42px;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+/* ─── SELECT PLAN BUTTON ─── */
+.plan-select-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 100%;
+  border: none;
+  padding: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.plan-select-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ─── STATUS TEXT HELPERS ─── */
+.active-status {
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cancel-status {
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .subscription-container {
+    padding: 24px 16px;
+  }
+
+  .subscription-title {
+    font-size: 24px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .manual-btn,
+  .auto-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

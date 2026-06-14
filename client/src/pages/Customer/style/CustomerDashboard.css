@@ -1,0 +1,374 @@
+/* ===================================================
+   CustomerDashboard.css
+   Theme: Clean Laundry — soft blues, crisp whites,
+   airy spacing with a modern card-based layout
+=================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600&display=swap');
+
+/* ─── CSS Variables ─────────────────────────── */
+:root {
+  --primary:       #3a6ff7;
+  --primary-light: #eef2ff;
+  --primary-dark:  #2451c7;
+  --danger:        #ff4d4f;
+  --danger-light:  #fff1f0;
+  --text-heading:  #111827;
+  --text-body:     #374151;
+  --text-muted:    #9ca3af;
+  --border:        #e5e7eb;
+  --bg:            #f5f7ff;
+  --card:          #ffffff;
+  --shadow-sm:     0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:     0 4px 16px rgba(58,111,247,.10);
+  --shadow-lg:     0 10px 40px rgba(58,111,247,.14);
+  --radius:        14px;
+  --radius-sm:     8px;
+  --transition:    all .2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── Page Reset ─────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-body);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Dashboard Wrapper ──────────────────────── */
+.dashboard-wrapper {
+  max-width: 940px;
+  margin: 36px auto;
+  padding: 0 20px 60px;
+}
+
+/* ─── Header Card ────────────────────────────── */
+.dashboard-header {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-left: 4px solid var(--primary);
+  animation: slideDown .4s ease both;
+}
+
+.dashboard-header__info h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.dashboard-header__info p {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: .3px;
+}
+
+.dashboard-header__info p strong {
+  color: var(--primary);
+}
+
+/* ─── Logout Button ──────────────────────────── */
+.btn-logout {
+  padding: 9px 18px;
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(255,77,79,.25);
+}
+
+.btn-logout:hover {
+  background: #e63435;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255,77,79,.35);
+}
+
+.btn-logout:active {
+  transform: translateY(0);
+}
+
+/* ─── Tab Bar ────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  background: var(--card);
+  padding: 6px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  animation: slideDown .45s ease both;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 9px 18px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-body);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  flex: 1;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.tab-btn.active {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(58,111,247,.30);
+}
+
+/* ─── Content Panel ──────────────────────────── */
+.tab-panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 28px;
+  border: 1px solid var(--border);
+  animation: fadeUp .35s ease both;
+}
+
+/* ─── Feedback Cards ─────────────────────────── */
+.feedback-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.feedback-card {
+  background: var(--primary-light);
+  border: 1px solid #d6e0fb;
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  transition: var(--transition);
+}
+
+.feedback-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.feedback-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.feedback-card__name {
+  font-weight: 700;
+  color: var(--text-heading);
+  font-size: 15px;
+}
+
+.feedback-card__rating {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  background: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #d6e0fb;
+}
+
+.feedback-card__service {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.feedback-card__comment {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+
+/* ─── Loading State ──────────────────────────── */
+.loading-screen {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.loading-spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin .75s linear infinite;
+}
+
+/* ─── Generic Buttons (reusable) ─────────────── */
+.btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(58,111,247,.25);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(58,111,247,.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary-light);
+}
+
+/* ─── Form Inputs (for child components) ─────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: .2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-body);
+  background: #fff;
+  transition: var(--transition);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(58,111,247,.12);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ─── Section Title ──────────────────────────── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+/* ─── Badge / Tag ────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-success { background: #d1fae5; color: #065f46; }
+.badge-warning { background: #fef3c7; color: #92400e; }
+.badge-danger  { background: var(--danger-light); color: var(--danger); }
+.badge-info    { background: var(--primary-light); color: var(--primary-dark); }
+
+/* ─── Divider ────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* ─── Keyframes ──────────────────────────────── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 640px) {
+  .dashboard-wrapper   { margin: 16px auto; padding: 0 14px 40px; }
+  .dashboard-header    { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .dashboard-header__info h2 { font-size: 1.25rem; }
+  .tab-bar             { gap: 6px; }
+  .tab-btn             { padding: 8px 12px; font-size: 13px; min-width: 80px; }
+  .tab-panel           { padding: 18px; }
+}

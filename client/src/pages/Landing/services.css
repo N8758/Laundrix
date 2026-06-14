@@ -1,0 +1,406 @@
+/* ─────────────────────────────────────────────
+   Services Section — World-Class CSS
+   Font: Clash Display (headings) + DM Sans (body)
+   Theme: Clean white, premium feel, sky/indigo accents
+───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+
+/* ── CSS Variables ── */
+.svs-section {
+  --svs-white: #ffffff;
+  --svs-bg: #f8fafc;
+  --svs-bg-card: #ffffff;
+  --svs-text-dark: #0c1b33;
+  --svs-text-mid: #3d5470;
+  --svs-text-light: #64748b;
+  --svs-border: rgba(15, 23, 42, 0.08);
+  --svs-border-hover: rgba(15, 23, 42, 0.16);
+  --svs-sky: #0ea5e9;
+  --svs-sky-light: #e0f2fe;
+  --svs-indigo: #6366f1;
+  --svs-indigo-light: #eef2ff;
+  --svs-shadow-sm: 0 2px 8px rgba(12, 27, 51, 0.06), 0 1px 2px rgba(12, 27, 51, 0.04);
+  --svs-shadow-md: 0 8px 24px rgba(12, 27, 51, 0.09), 0 2px 6px rgba(12, 27, 51, 0.05);
+  --svs-shadow-hover: 0 20px 48px rgba(12, 27, 51, 0.14), 0 4px 12px rgba(12, 27, 51, 0.07);
+  --svs-radius: 18px;
+  --svs-radius-sm: 10px;
+  --svs-radius-pill: 100px;
+
+  position: relative;
+  padding: 120px 48px;
+  background: var(--svs-white);
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Background Decorative Blobs ── */
+.svs-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.svs-blob-1 {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -180px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.07) 0%, transparent 70%);
+}
+
+.svs-blob-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, transparent 70%);
+}
+
+/* ── Scroll Animations ── */
+.svs-animate {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms);
+}
+
+.svs-animate.svs-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Header ── */
+.svs-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 72px;
+}
+
+.svs-eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svs-sky);
+  background: var(--svs-sky-light);
+  padding: 6px 16px;
+  border-radius: var(--svs-radius-pill);
+  margin-bottom: 22px;
+}
+
+.svs-heading {
+  font-family: 'Clash Display', 'DM Sans', sans-serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 600;
+  color: var(--svs-text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+
+.svs-heading-accent {
+  position: relative;
+  color: var(--svs-sky);
+}
+
+.svs-heading-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--svs-sky), var(--svs-indigo));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+}
+
+.svs-animate.svs-visible .svs-heading-accent::after {
+  transform: scaleX(1);
+}
+
+.svs-subheading {
+  font-size: 17px;
+  color: var(--svs-text-light);
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── Services Grid ── */
+.svs-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+/* ── Service Card ── */
+.svs-card {
+  position: relative;
+  background: var(--svs-bg-card);
+  border-radius: var(--svs-radius);
+  padding: 32px 28px 28px;
+  border: 1px solid var(--svs-border);
+  box-shadow: var(--svs-shadow-sm);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.svs-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--svs-radius);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.04) 0%, rgba(99, 102, 241, 0.04) 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.svs-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--svs-shadow-hover);
+  border-color: var(--svs-border-hover);
+}
+
+.svs-card:hover::before {
+  opacity: 1;
+}
+
+.svs-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.svs-icon-wrap {
+  width: 54px;
+  height: 54px;
+  background: #f1f5f9;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.svs-card:hover .svs-icon-wrap {
+  background: var(--svs-sky-light);
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.svs-icon {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.svs-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--svs-sky);
+  background: var(--svs-sky-light);
+  padding: 4px 10px;
+  border-radius: var(--svs-radius-pill);
+  text-transform: uppercase;
+}
+
+.svs-card-title {
+  font-family: 'Clash Display', 'DM Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--svs-text-dark);
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.svs-card-desc {
+  font-size: 14.5px;
+  color: var(--svs-text-light);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.svs-card-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--svs-sky), var(--svs-indigo));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 0 0 var(--svs-radius) var(--svs-radius);
+}
+
+.svs-card:hover .svs-card-line {
+  transform: scaleX(1);
+}
+
+/* ── Benefits Section ── */
+.svs-benefits-wrapper {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.svs-benefit-card {
+  background: var(--svs-bg-card);
+  border-radius: var(--svs-radius);
+  padding: 38px 36px;
+  border: 1px solid var(--svs-border);
+  box-shadow: var(--svs-shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease;
+}
+
+.svs-benefit-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 60%, #fff));
+  border-radius: var(--svs-radius) var(--svs-radius) 0 0;
+}
+
+.svs-benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--svs-shadow-hover);
+}
+
+.svs-benefit-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.svs-benefit-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px var(--accent-light);
+}
+
+.svs-benefit-title {
+  font-family: 'Clash Display', 'DM Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--svs-text-dark);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.svs-benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.svs-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  font-size: 15px;
+  color: var(--svs-text-mid);
+  font-weight: 400;
+  border-radius: var(--svs-radius-sm);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+.svs-benefit-item:hover {
+  background: var(--accent-light);
+  color: var(--svs-text-dark);
+  transform: translateX(4px);
+}
+
+.svs-check {
+  width: 22px;
+  height: 22px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.svs-benefit-item:hover .svs-check {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.12);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .svs-section {
+    padding: 80px 20px;
+  }
+
+  .svs-header {
+    margin-bottom: 48px;
+  }
+
+  .svs-grid {
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .svs-benefits-wrapper {
+    gap: 16px;
+  }
+
+  .svs-benefit-card {
+    padding: 28px 24px;
+  }
+
+  .svs-card {
+    padding: 24px 22px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .svs-heading {
+    font-size: 30px;
+  }
+
+  .svs-subheading {
+    font-size: 15px;
+  }
+
+  .svs-benefit-title {
+    font-size: 19px;
+  }
+}

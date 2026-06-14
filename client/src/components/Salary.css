@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Root Tokens ─────────────────────────────────── */
+:root {
+  --bg:             #f4f6fa;
+  --card-bg:        #ffffff;
+  --accent:         #2563eb;
+  --accent-dim:     rgba(37, 99, 235, 0.08);
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --border:         #e5e7eb;
+  --green:          #16a34a;
+  --green-dim:      rgba(22, 163, 74, 0.08);
+  --shadow-sm:      0 1px 4px rgba(0,0,0,0.05);
+  --shadow-md:      0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:      0 8px 40px rgba(0,0,0,0.10);
+  --radius-sm:      8px;
+  --radius-md:      12px;
+  --radius-lg:      18px;
+}
+
+/* ─── Container ───────────────────────────────────── */
+.salary-container {
+  padding: 28px 24px;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Title ───────────────────────────────────────── */
+.salary-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── No Salary ───────────────────────────────────── */
+.no-salary {
+  background: var(--card-bg);
+  padding: 40px 20px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Salary Card ─────────────────────────────────── */
+.salary-card {
+  background: var(--card-bg);
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  animation: fadeSlideIn 0.28s ease both;
+  transition: transform 0.2s, box-shadow 0.2s, border-left-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top shimmer */
+.salary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.12), transparent);
+}
+
+.salary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-left-color: var(--accent);
+}
+
+.salary-card p {
+  margin: 8px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.salary-card b {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* ─── Salary Amount ───────────────────────────────── */
+.salary-amount {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 10px 18px;
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(22, 163, 74, 0.18);
+  border-radius: var(--radius-sm);
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+/* ─── Animation ───────────────────────────────────── */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .salary-container {
+    padding: 20px 14px;
+  }
+
+  .salary-title {
+    font-size: 22px;
+  }
+
+  .salary-card {
+    padding: 18px 16px;
+  }
+
+  .salary-amount {
+    font-size: 18px;
+    padding: 8px 14px;
+  }
+}

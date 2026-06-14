@@ -1,0 +1,66 @@
+/* client/src/pages/Customer/style/CustomerFeedback.css */
+
+.feedback-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  font-family: Arial, sans-serif;
+}
+
+.feedback-title {
+  margin-bottom: 15px;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feedback-input,
+.feedback-select,
+.feedback-textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.services-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+
+.service-item {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.feedback-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background: #3a6ff7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.feedback-btn:hover {
+  background: #2f5de0;
+}
+
+.feedback-message {
+  margin-top: 10px;
+  font-weight: 500;
+  color: green;
+}

@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Root Tokens ─────────────────────────────────── */
+:root {
+  --bg:             #f4f6fa;
+  --card-bg:        #ffffff;
+  --input-bg:       #f9fafc;
+  --accent:         #2563eb;
+  --accent-hover:   #1d4ed8;
+  --accent-dim:     rgba(37, 99, 235, 0.10);
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --border:         #e5e7eb;
+  --border-focus:   #2563eb;
+  --thead-bg:       #1e3a6e;
+  --row-hover:      #f0f4ff;
+  --green:          #16a34a;
+  --green-dim:      rgba(22, 163, 74, 0.10);
+  --red:            #dc2626;
+  --red-dim:        rgba(220, 38, 38, 0.10);
+  --orange:         #ea580c;
+  --orange-dim:     rgba(234, 88, 12, 0.10);
+  --shadow-sm:      0 1px 4px rgba(0,0,0,0.05);
+  --shadow-md:      0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:      0 8px 40px rgba(0,0,0,0.10);
+  --radius-sm:      8px;
+  --radius-md:      12px;
+  --radius-lg:      18px;
+}
+
+/* ─── Container ───────────────────────────────────── */
+.leave-container {
+  padding: 28px 24px;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Title ───────────────────────────────────────── */
+.leave-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Form ────────────────────────────────────────── */
+.leave-form {
+  background: var(--card-bg);
+  padding: 22px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+/* ─── Input ───────────────────────────────────────── */
+.leave-input {
+  padding: 11px 14px;
+  background: var(--input-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  flex: 1;
+  min-width: 160px;
+}
+
+.leave-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.leave-input:focus {
+  border-color: var(--border-focus);
+  background: var(--card-bg);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* ─── Submit Button ───────────────────────────────── */
+.leave-btn {
+  padding: 11px 22px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  white-space: nowrap;
+}
+
+.leave-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-15deg);
+  transition: left 0.4s;
+}
+
+.leave-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.leave-btn:hover::after {
+  left: 130%;
+}
+
+.leave-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+/* ─── Table Wrapper ───────────────────────────────── */
+.leave-table-wrapper {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+/* ─── Table ───────────────────────────────────────── */
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* ─── Table Head ──────────────────────────────────── */
+.leave-table thead {
+  background: var(--thead-bg);
+}
+
+.leave-table thead tr th:first-child {
+  border-radius: var(--radius-lg) 0 0 0;
+}
+
+.leave-table thead tr th:last-child {
+  border-radius: 0 var(--radius-lg) 0 0;
+}
+
+.leave-table th {
+  padding: 15px 18px;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: none;
+  white-space: nowrap;
+}
+
+/* ─── Table Body ──────────────────────────────────── */
+.leave-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.leave-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.leave-table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 var(--radius-lg);
+}
+
+.leave-table tbody tr:last-child td:last-child {
+  border-radius: 0 0 var(--radius-lg) 0;
+}
+
+.leave-table tbody tr {
+  transition: background 0.15s;
+}
+
+.leave-table tbody tr:hover td {
+  background: var(--row-hover);
+}
+
+/* ─── Status Badges ───────────────────────────────── */
+.status-approved,
+.status-rejected,
+.status-pending {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.status-approved {
+  background: var(--green-dim);
+  color: var(--green);
+}
+
+.status-rejected {
+  background: var(--red-dim);
+  color: var(--red);
+}
+
+.status-pending {
+  background: var(--orange-dim);
+  color: var(--orange);
+}
+
+/* ─── No Data ─────────────────────────────────────── */
+.no-leave-data {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+}
+
+/* ─── Scrollbar ───────────────────────────────────── */
+.leave-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.leave-table-wrapper::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.leave-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.leave-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .leave-container {
+    padding: 20px 14px;
+  }
+
+  .leave-title {
+    font-size: 22px;
+  }
+
+  .leave-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .leave-input {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .leave-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .leave-table th,
+  .leave-table td {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Root Tokens ─────────────────────────────────── */
+:root {
+  --bg:             #f4f6fa;
+  --card-bg:        #ffffff;
+  --accent:         #2563eb;
+  --accent-dim:     rgba(37, 99, 235, 0.08);
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --border:         #e5e7eb;
+  --thead-bg:       #1e3a6e;
+  --row-hover:      #f0f4ff;
+  --green:          #16a34a;
+  --green-dim:      rgba(22, 163, 74, 0.10);
+  --red:            #dc2626;
+  --red-dim:        rgba(220, 38, 38, 0.10);
+  --yellow:         #d97706;
+  --yellow-dim:     rgba(217, 119, 6, 0.10);
+  --shadow-lg:      0 8px 40px rgba(0,0,0,0.10);
+  --radius-sm:      8px;
+  --radius-lg:      18px;
+}
+
+/* ─── Container ───────────────────────────────────── */
+.owner-attendance-container {
+  padding: 40px 36px;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Title ───────────────────────────────────────── */
+.attendance-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Table Wrapper ───────────────────────────────── */
+.attendance-table-wrapper {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+/* ─── Table ───────────────────────────────────────── */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* ─── Table Head ──────────────────────────────────── */
+.attendance-table thead {
+  background: var(--thead-bg);
+}
+
+.attendance-table thead tr th:first-child {
+  border-radius: var(--radius-lg) 0 0 0;
+}
+
+.attendance-table thead tr th:last-child {
+  border-radius: 0 var(--radius-lg) 0 0;
+}
+
+.attendance-table th {
+  padding: 15px 18px;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: none;
+  white-space: nowrap;
+}
+
+/* ─── Table Body ──────────────────────────────────── */
+.attendance-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.attendance-table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 var(--radius-lg);
+}
+
+.attendance-table tbody tr:last-child td:last-child {
+  border-radius: 0 0 var(--radius-lg) 0;
+}
+
+.attendance-table tbody tr {
+  transition: background 0.15s;
+}
+
+.attendance-table tbody tr:hover td {
+  background: var(--row-hover);
+}
+
+/* ─── Status Badge ────────────────────────────────── */
+.attendance-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.attendance-status.present {
+  background: var(--green-dim);
+  color: var(--green);
+}
+
+.attendance-status.absent {
+  background: var(--red-dim);
+  color: var(--red);
+}
+
+.attendance-status.late {
+  background: var(--yellow-dim);
+  color: var(--yellow);
+}
+
+/* Fallback */
+.attendance-status:not(.present):not(.absent):not(.late) {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ─── Empty State ─────────────────────────────────── */
+.no-attendance {
+  padding: 48px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+}
+
+/* ─── Scrollbar ───────────────────────────────────── */
+.attendance-table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.attendance-table-wrapper::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.attendance-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.attendance-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .owner-attendance-container {
+    padding: 24px 16px;
+  }
+
+  .attendance-title {
+    font-size: 24px;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+}

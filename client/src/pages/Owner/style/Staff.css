@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+/* ───── Variables (matches dashboard theme) ───── */
+:root {
+  --staff-bg: #f4f6fb;
+  --staff-white: #ffffff;
+  --staff-border: #e8ecf4;
+  --staff-primary: #1a2b4a;
+  --staff-accent: #3b82f6;
+  --staff-accent-light: #eff6ff;
+  --staff-success: #10b981;
+  --staff-success-light: #ecfdf5;
+  --staff-danger: #ef4444;
+  --staff-danger-light: #fef2f2;
+  --staff-text: #1a2b4a;
+  --staff-muted: #6b7280;
+  --staff-label: #9ca3af;
+  --staff-radius: 14px;
+  --staff-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --staff-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ───── Wrapper ───── */
+.staff-wrapper {
+  background: var(--staff-bg);
+  font-family: 'Poppins', sans-serif;
+  color: var(--staff-text);
+  min-height: 100vh;
+  padding: 28px 24px;
+}
+
+.staff-container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ───── Header ───── */
+.staff-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.staff-header-icon {
+  width: 46px;
+  height: 46px;
+  background: var(--staff-accent-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.staff-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--staff-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.staff-header span {
+  font-size: 13px;
+  color: var(--staff-muted);
+  display: block;
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+/* ───── Form Card ───── */
+.staff-form-card {
+  background: var(--staff-white);
+  border: 1px solid var(--staff-border);
+  border-radius: var(--staff-radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--staff-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  border-radius: 4px 4px 0 0;
+}
+
+.staff-form-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: var(--staff-label);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.staff-form-label .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--staff-accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ───── Input Row ───── */
+.staff-input-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.staff-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.staff-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--staff-muted);
+  letter-spacing: 0.3px;
+}
+
+.staff-field input {
+  background: #f9fafb;
+  border: 1.5px solid var(--staff-border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: var(--staff-text);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  outline: none;
+}
+
+.staff-field input:focus {
+  border-color: var(--staff-accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.staff-field input::placeholder {
+  color: #c4c9d4;
+}
+
+/* ───── Button Row ───── */
+.staff-btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.staff-btn {
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.12s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.staff-btn:active {
+  transform: scale(0.97);
+}
+
+.staff-btn-primary {
+  background: var(--staff-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.staff-btn-primary:hover {
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
+  opacity: 0.93;
+}
+
+.staff-btn-update {
+  background: var(--staff-success);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.staff-btn-update:hover {
+  opacity: 0.9;
+}
+
+.staff-btn-cancel {
+  background: #fff;
+  color: var(--staff-muted);
+  border: 1.5px solid var(--staff-border);
+}
+
+.staff-btn-cancel:hover {
+  border-color: #c4c9d4;
+  color: var(--staff-text);
+}
+
+/* ───── List Header ───── */
+.staff-list-header {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--staff-primary);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.staff-badge {
+  background: var(--staff-accent-light);
+  border: 1px solid #bfdbfe;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--staff-accent);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ───── Staff Card ───── */
+.staff-card {
+  background: var(--staff-white);
+  border: 1px solid var(--staff-border);
+  border-left: 4px solid var(--staff-accent);
+  border-radius: var(--staff-radius);
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--staff-shadow);
+  transition: box-shadow 0.2s, transform 0.15s;
+  animation: staffSlideIn 0.22s ease both;
+}
+
+.staff-card:hover {
+  box-shadow: var(--staff-shadow-hover);
+  transform: translateY(-2px);
+}
+
+@keyframes staffSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ───── Avatar ───── */
+.staff-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: var(--staff-accent-light);
+  color: var(--staff-accent);
+  font-family: 'DM Mono', monospace;
+  border: 1.5px solid #bfdbfe;
+}
+
+/* ───── Staff Info ───── */
+.staff-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.staff-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--staff-primary);
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.staff-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.staff-meta-chip {
+  font-size: 12px;
+  color: var(--staff-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Mono', monospace;
+}
+
+.staff-meta-chip .chip-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--staff-label);
+  font-family: 'Poppins', sans-serif;
+  margin-right: 2px;
+}
+
+/* ───── Card Action Buttons ───── */
+.staff-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.staff-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1.5px solid var(--staff-border);
+  background: #f9fafb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+}
+
+.staff-icon-btn:active {
+  transform: scale(0.9);
+}
+
+.staff-icon-btn.edit:hover {
+  background: var(--staff-accent-light);
+  border-color: #93c5fd;
+}
+
+.staff-icon-btn.del:hover {
+  background: var(--staff-danger-light);
+  border-color: #fca5a5;
+}
+
+/* ───── Empty State ───── */
+.staff-empty {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--staff-muted);
+  font-size: 14px;
+  background: var(--staff-white);
+  border: 1.5px dashed var(--staff-border);
+  border-radius: var(--staff-radius);
+  box-shadow: var(--staff-shadow);
+}
+
+.staff-empty .staff-empty-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.staff-empty p {
+  font-weight: 500;
+  color: var(--staff-muted);
+}
+
+/* ───── Divider ───── */
+.staff-divider {
+  border: none;
+  border-top: 1px solid var(--staff-border);
+  margin: 0 0 22px 0;
+}
+
+/* ───── Responsive ───── */
+@media (max-width: 500px) {
+  .staff-input-row {
+    flex-direction: column;
+  }
+  .staff-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

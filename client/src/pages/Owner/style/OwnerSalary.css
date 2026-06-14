@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Root Tokens ─────────────────────────────────── */
+:root {
+  --bg:           #f4f6fa;
+  --card-bg:      #ffffff;
+  --input-bg:     #f9fafc;
+  --accent:       #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-dim:   rgba(37, 99, 235, 0.10);
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --border:       #e5e7eb;
+  --border-focus: #2563eb;
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.06);
+  --shadow-md:    0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,0.10);
+  --radius-sm:    8px;
+  --radius-lg:    20px;
+  --green:        #16a34a;
+}
+
+/* ─── Container ───────────────────────────────────── */
+.owner-salary-container {
+  padding: 40px 36px;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Title ───────────────────────────────────────── */
+.salary-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Form Card ───────────────────────────────────── */
+.salary-form {
+  background: var(--card-bg);
+  padding: 32px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ─── Inputs & Select ─────────────────────────────── */
+.salary-form select,
+.salary-form input[type="number"],
+.salary-form input[type="month"] {
+  padding: 12px 16px;
+  background: var(--input-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.salary-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+  cursor: pointer;
+}
+
+.salary-form select option {
+  background: #ffffff;
+  color: var(--text-primary);
+}
+
+.salary-form input::placeholder {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.salary-form select:focus,
+.salary-form input:focus {
+  border-color: var(--border-focus);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* ─── Button ──────────────────────────────────────── */
+.salary-btn {
+  margin-top: 4px;
+  padding: 13px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+}
+
+.salary-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-15deg);
+  transition: left 0.4s;
+}
+
+.salary-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.salary-btn:hover::after {
+  left: 130%;
+}
+
+.salary-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.salary-btn:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── Subtitle ────────────────────────────────────── */
+.salary-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1.5px solid var(--border);
+  margin-bottom: 0;
+}
+
+/* ─── Empty State ─────────────────────────────────── */
+.no-salary {
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 16px 0 4px;
+}
+
+/* ─── Salary Cards ────────────────────────────────── */
+.salary-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--accent);
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  animation: fadeSlideIn 0.28s ease both;
+  transition: transform 0.2s, box-shadow 0.2s, border-left-color 0.2s;
+}
+
+.salary-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--accent-hover);
+}
+
+.salary-card p {
+  margin: 5px 0;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+}
+
+.salary-card b {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-right: 3px;
+}
+
+/* Salary amount highlighted in green */
+.salary-card p:last-child {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green);
+  margin-top: 8px;
+}
+
+/* ─── Animation ───────────────────────────────────── */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

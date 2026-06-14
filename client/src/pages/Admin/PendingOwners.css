@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f8faff;
+  --blue-dark: #1e3a8a;
+  --blue-mid: #2563eb;
+  --blue-light: #60a5fa;
+  --blue-pale: #dbeafe;
+  --green: #16a34a;
+  --green-dark: #15803d;
+  --green-pale: #dcfce7;
+  --text-head: #0f1f4b;
+  --text-body: #475569;
+  --text-muted: #94a3b8;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 12px rgba(37, 99, 235, 0.07);
+  --shadow-md: 0 8px 30px rgba(37, 99, 235, 0.13);
+  --shadow-lg: 0 20px 50px rgba(37, 99, 235, 0.18);
+}
+
+/* ── Page ── */
+.pending-container {
+  min-height: 100vh;
+  padding: 60px 40px;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 70% 40% at 50% -8%, rgba(37, 99, 235, 0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 30% at 95% 100%, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* dot grid */
+.pending-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #c7d9f9 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Title ── */
+.pending-title {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--text-head);
+  letter-spacing: -0.02em;
+  margin-bottom: 48px;
+  animation: titleIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pending-title::after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--blue-mid), var(--blue-light));
+  margin: 12px auto 0;
+}
+
+@keyframes titleIn {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Cards wrapper ── */
+.cards-list {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Card ── */
+.pending-card {
+  background: var(--white);
+  border: 1.5px solid rgba(37, 99, 235, 0.09);
+  border-radius: 20px;
+  padding: 30px 32px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+
+  opacity: 0;
+  animation: cardUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* stagger each card via inline style is not possible without JSX change,
+   so we use nth-child for up to 10 items */
+.pending-card:nth-child(1)  { animation-delay: 0.08s; }
+.pending-card:nth-child(2)  { animation-delay: 0.16s; }
+.pending-card:nth-child(3)  { animation-delay: 0.24s; }
+.pending-card:nth-child(4)  { animation-delay: 0.32s; }
+.pending-card:nth-child(5)  { animation-delay: 0.40s; }
+.pending-card:nth-child(6)  { animation-delay: 0.48s; }
+.pending-card:nth-child(7)  { animation-delay: 0.56s; }
+.pending-card:nth-child(8)  { animation-delay: 0.64s; }
+.pending-card:nth-child(9)  { animation-delay: 0.72s; }
+.pending-card:nth-child(10) { animation-delay: 0.80s; }
+
+@keyframes cardUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* left accent bar */
+.pending-card::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 4px;
+  height: calc(100% - 36px);
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, var(--blue-mid), var(--blue-light));
+  opacity: 0.5;
+  transition: opacity 0.35s, height 0.35s;
+}
+
+/* blob top-right */
+.pending-card::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--blue-pale);
+  opacity: 0.35;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.pending-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+.pending-card:hover::before {
+  opacity: 1;
+  height: calc(100% - 20px);
+  top: 10px;
+}
+
+.pending-card:hover::after {
+  transform: scale(1.35);
+  opacity: 0.6;
+}
+
+/* ── Card content ── */
+.pending-card p {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  color: var(--text-body);
+  margin: 8px 0;
+  line-height: 1.55;
+}
+
+.pending-card p:first-child {
+  font-size: 17px;
+  color: var(--text-head);
+  margin-bottom: 12px;
+}
+
+.pending-card p b {
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+
+/* field labels auto-styled */
+.pending-card p:not(:first-child) {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+/* ── Approve button ── */
+.approve-btn {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  padding: 11px 26px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.30);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.approve-btn:hover {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(22, 163, 74, 0.38);
+}
+
+.approve-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(22, 163, 74, 0.25);
+  transition-duration: 0.1s;
+}
+
+/* ── Loading / Empty state ── */
+.loading {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 120px;
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  opacity: 0;
+  animation: titleIn 0.6s 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pending-container {
+    padding: 40px 16px;
+  }
+
+  .pending-card {
+    padding: 24px 20px;
+  }
+
+  .cards-list {
+    max-width: 100%;
+  }
+}

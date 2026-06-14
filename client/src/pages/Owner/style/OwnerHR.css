@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Root Tokens ─────────────────────────────────── */
+:root {
+  --bg:             #f4f6fa;
+  --card-bg:        #ffffff;
+  --accent:         #2563eb;
+  --accent-hover:   #1d4ed8;
+  --accent-dim:     rgba(37, 99, 235, 0.10);
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --border:         #e5e7eb;
+  --tab-hover:      #e2e8f2;
+  --shadow-sm:      0 1px 4px rgba(0,0,0,0.05);
+  --shadow-lg:      0 8px 40px rgba(0,0,0,0.10);
+  --radius-sm:      8px;
+  --radius-md:      12px;
+  --radius-lg:      18px;
+}
+
+/* ─── Container ───────────────────────────────────── */
+.owner-hr-container {
+  padding: 40px 36px;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Title ───────────────────────────────────────── */
+.hr-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Tabs Wrapper ────────────────────────────────── */
+.hr-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 28px;
+  background: var(--card-bg);
+  padding: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  width: fit-content;
+  flex-wrap: wrap;
+}
+
+/* ─── Tab Button ──────────────────────────────────── */
+.hr-tab-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.hr-tab-btn:hover {
+  background: var(--tab-hover);
+  color: var(--text-primary);
+}
+
+/* ─── Active Tab ──────────────────────────────────── */
+.hr-tab-active {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+}
+
+.hr-tab-active:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* ─── Content Area ────────────────────────────────── */
+.hr-content {
+  margin-top: 4px;
+  animation: hrFadeIn 0.22s ease both;
+}
+
+/* ─── Animation ───────────────────────────────────── */
+@keyframes hrFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .owner-hr-container {
+    padding: 24px 16px;
+  }
+
+  .hr-title {
+    font-size: 24px;
+  }
+
+  .hr-tabs {
+    width: 100%;
+  }
+
+  .hr-tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 13px;
+  }
+}

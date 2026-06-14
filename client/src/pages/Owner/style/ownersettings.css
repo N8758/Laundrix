@@ -1,0 +1,177 @@
+/* ============================================================
+   OWNERSETTINGS.CSS  —  Laundry Management System
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ── Container ──────────────────────────────────────────────── */
+.owner-settings-container {
+  max-width: 520px;
+  background: #ffffff;
+  padding: 32px 30px 28px;
+  border-radius: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  border: 1.5px solid #e2e8f0;
+  box-shadow:
+    0 4px 24px rgba(15, 23, 42, 0.07),
+    0 1px 4px  rgba(15, 23, 42, 0.04);
+}
+
+/* ── Title ──────────────────────────────────────────────────── */
+.owner-settings-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.4px;
+  margin: 0 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.owner-settings-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  background: linear-gradient(180deg, #0ea5e9, #34d399);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ── Checkbox row ───────────────────────────────────────────── */
+.owner-settings-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 13px 16px;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 4px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  user-select: none;
+}
+
+.owner-settings-checkbox:hover {
+  border-color: #bfdbfe;
+  background: #f0f9ff;
+  color: #0284c7;
+}
+
+.owner-settings-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #0ea5e9;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Input ──────────────────────────────────────────────────── */
+.owner-settings-input {
+  width: 100%;
+  padding: 13px 16px;
+  margin-top: 14px;
+
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+
+  box-sizing: border-box;
+  outline: none;
+
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.owner-settings-input::placeholder {
+  color: #b0bec5;
+  font-weight: 400;
+}
+
+.owner-settings-input:hover {
+  border-color: #bfdbfe;
+  background: #ffffff;
+}
+
+.owner-settings-input:focus {
+  border-color: #0ea5e9;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(14, 165, 233, 0.10),
+    0 1px 3px rgba(14, 165, 233, 0.08);
+}
+
+/* ── Save Button ────────────────────────────────────────────── */
+.owner-settings-btn {
+  margin-top: 22px;
+  padding: 13px 28px;
+
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.1px;
+
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 14px rgba(34, 197, 94, 0.30),
+    0 1px 3px  rgba(34, 197, 94, 0.20),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+
+  transition:
+    transform  0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.owner-settings-btn:hover {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(34, 197, 94, 0.36),
+    0 2px 6px  rgba(34, 197, 94, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.20);
+}
+
+.owner-settings-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 2px 8px rgba(34, 197, 94, 0.25),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.owner-settings-btn:disabled {
+  opacity: 0.60;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .owner-settings-container {
+    padding: 22px 16px 20px;
+    border-radius: 16px;
+  }
+
+  .owner-settings-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

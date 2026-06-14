@@ -1,0 +1,250 @@
+/* OwnerCharts.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Root Variables ── */
+:root {
+  --primary:       #3a6ff7;
+  --primary-dark:  #2b59d6;
+  --primary-light: #eef2ff;
+  --confirmed:     #10b981;
+  --pending:       #f59e0b;
+  --surface:       #ffffff;
+  --bg:            #f8fafc;
+  --border:        #e5e9f2;
+  --text-primary:  #0f172a;
+  --text-secondary:#64748b;
+  --text-muted:    #94a3b8;
+  --radius-sm:     8px;
+  --radius-md:     14px;
+  --radius-lg:     20px;
+  --shadow-sm:     0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:     0 4px 16px rgba(58,111,247,0.08), 0 1px 4px rgba(0,0,0,0.05);
+  --shadow-lg:     0 8px 32px rgba(58,111,247,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  --transition:    all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Page Container ── */
+.charts-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ── Page Heading ── */
+.charts-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+.charts-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), #7c9fff);
+  border-radius: 99px;
+}
+
+/* ── Summary Stats Row ── */
+.charts-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.charts-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.charts-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), #7c9fff);
+}
+
+.charts-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.charts-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.charts-stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* ── Section Card ── */
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.chart-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.chart-card-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+  margin: 0 0 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-card-title::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* ── No Data / Empty State ── */
+.charts-empty {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1.5px dashed var(--border);
+}
+
+.charts-empty span {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  filter: grayscale(0.3);
+}
+
+/* ── Export Button ── */
+.btn-export-csv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, var(--primary) 0%, #5a87ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(58, 111, 247, 0.35);
+  transition: var(--transition);
+}
+
+.btn-export-csv:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  box-shadow: 0 4px 14px rgba(58, 111, 247, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-export-csv:active {
+  transform: scale(0.97) translateY(0);
+  box-shadow: 0 1px 4px rgba(58, 111, 247, 0.3);
+}
+
+/* ── Status Badge Colors (for legends / custom labels) ── */
+.status-confirmed { color: var(--confirmed); }
+.status-pending   { color: var(--pending); }
+
+/* ── Recharts Overrides ── */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--border) !important;
+  font-size: 0.82rem !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 0.6rem 0.9rem !important;
+}
+
+.recharts-legend-wrapper {
+  font-size: 0.82rem !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.recharts-cartesian-grid line {
+  stroke: #f1f5f9 !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--text-secondary) !important;
+  font-size: 0.78rem !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .charts-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .chart-card {
+    padding: 1.2rem 1.2rem;
+    border-radius: var(--radius-md);
+  }
+
+  .charts-heading {
+    font-size: 1.3rem;
+  }
+
+  .charts-stat-value {
+    font-size: 1.4rem;
+  }
+
+  .btn-export-csv {
+    width: 100%;
+    justify-content: center;
+  }
+}
